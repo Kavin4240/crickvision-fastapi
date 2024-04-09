@@ -1,0 +1,433 @@
+<!-- {% load static %}
+
+<!DOCTYPE html> -->
+
+<!-- <html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="theme-color" content="#007bff" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link href="https://api.fontshare.com/v2/css?f[]=amulya@400&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/2f69883659.js" crossorigin="anonymous"></script>
+        <title>Crickvision - PunchBiz</title>
+        <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Gantari:400,600,700&display=swap" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+    </head>
+
+    <body style="font-family: Gantari;"> -->
+
+        <!-- <div class="hero_area bubbly"> -->
+            <!-- header section strats -->
+            <!-- <header class="header_section">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg custom_nav-container ">
+                        <a class="navbar-brand" href="">
+                            <img src="{% static 'img/logo.png' %}" style="block-size: 80px; inline-size: fit-content;">
+
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa-solid fa-bars fa-xl" style="color: #007bff;"></i>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                                <ul class="navbar-nav  ">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/">Home </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href=""> Documentation </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href=""> Contact </a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            <section class=" slider_section ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="formy">
+
+                                {% if page == "signup" %}
+
+                                <div class="signup" id="signup">
+
+                                    <form method="post" action="/signupvalidate/">
+                                        {% csrf_token %}
+                                        <div class="formfield">
+                                            <h1>Signup</h1>
+                                        </div>
+                                        <div class="formfield">
+                                            <input type="text" placeholder="Name" id="username" name="name">
+                                        </div>
+                                        <div class="formfield">
+                                            <input type="text" placeholder="Email" id="username" name="email">
+                                        </div>
+
+                                        <div class="formfield">
+                                            <input type="password" placeholder="Password" class="pwip" id="password"
+                                                name="pass">
+                                            <i name="ixx" style="color: #007bff;" class="fa-solid fa-eye"
+                                                onclick="showPass('pass')"></i>
+                                        </div>
+                                        <div class="formfield">
+                                            <button type="submit">Signup</button>
+                                        </div> -->
+                                        <!-- ........ -->
+                                        <!-- <div class="formfield con">
+                                            <span class="jui">or Continue Using</span>
+                                        </div>
+                                        <div class="formfield">
+                                            <div class="social">
+                                                <div class="go"><i class="fab fa-google"></i> Google</div>
+                                                <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+                                            </div>
+                                        </div> -->
+                                        <!-- ............ -->
+                                        <!-- <div class="formfield" style="display: flex; justify-content: center;">
+                                            Already an user?<a class="signup-btn" style="color: #007bff; padding: none;"
+                                                href="/signin/">Signin</a>
+                                            here
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                                {% elif page == "signin" %}
+                                <div class="signin" id="signin">
+
+                                    <form action="/upload/" method="post">
+                                        {% csrf_token %}
+                                        <div class="formfield">
+                                            <h1>Signin</h1>
+                                        </div>
+                                        <div class="formfield">
+                                            <input type="text" placeholder="Email" id="username" name="emailx">
+                                        </div>
+
+                                        <div class="formfield">
+                                            <input type="password" placeholder="Password" class="pwip" id="password"
+                                                name="passx">
+                                            <i name="ixx" style="color: #007bff;" class="fa-solid fa-eye"
+                                                onclick="showPass('passx')"></i>
+                                        </div>
+                                        <div class="formfield">
+                                            <button type="submit">Log In</button>
+                                        </div> -->
+                                        <!-- .................... -->
+                                        <!-- <div class="formfield con">
+                                            <span class="jui">or Continue Using</span>
+                                        </div>
+                                        <div class="formfield">
+                                            <div class="social">
+                                                <div class="go"><i class="fab fa-google"></i> Google</div>
+                                                <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+                                            </div>
+                                        </div> -->
+
+
+
+
+
+                                       
+
+                                        <!-- COMMIT STREAKSS -->
+                                        <!-- ............... -->
+
+                                        <!-- <div class="formfield" style="display: flex; justify-content: center;">
+                                            <a class="signup-btn" style="color: #007bff;padding: none;"
+                                                href="/forgotpassword/">Forgot password?</a>
+                                        </div>
+                                        <div class="formfield" style="display: flex; justify-content: center;">
+                                            New here? <a class="signup-btn" style="color: #007bff;padding: none;"
+                                                href="/signup/">Signup</a> here
+                                        </div>
+                                    </form>
+                                </div>
+                                {% else %}
+                                <div class="forgot">
+                                    <form action="/forgotpass/" method="post">
+                                        {% csrf_token %}
+                                        <div class="formfield">
+                                            <h1>Reset Password</h1>
+                                        </div>
+                                        <div class="formfield">
+                                            <input type="text" placeholder="Email" id="username" name="emailf">
+                                        </div>
+                                        <div class="formfield">
+                                            <button type="submit">Send Email</button>
+                                        </div>
+                                        <div class="formfield" style="display: flex; justify-content: center;">
+                                            Back to<a class="signup-btn" style="color: #007bff; padding: none;"
+                                                href="/signin/"> Signin</a>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+
+
+
+                                {% endif %}
+
+                                {% if msg %}
+
+                                <div class="formfieldx">
+                                    <p class="error">{{ msg }}</p>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-6 offset-lg-1">
+                            <img src="{% static 'img/Cricket.svg'%}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script>
+            function showPass(elemx) {
+                const eyel = document.getElementsByName('ixx');
+                eyel.forEach((el) => {
+                    if (el.classList.contains('fa-eye-slash')) {
+                        el.classList.add('fa-eye');
+                        el.classList.remove('fa-eye-slash');
+                    } else {
+                        el.classList.remove('fa-eye');
+                        el.classList.add('fa-eye-slash');
+                    }
+
+
+
+
+                })
+                const inputElement = document.getElementsByName(elemx);
+                inputElement.forEach((elx) => {
+                    if (elx.type == "password") {
+                        elx.type = "text";
+                    } else {
+                        elx.type = "password";
+                    }
+                })
+
+            }
+        </script>
+
+        <style>
+            .hero_area {
+                background-color: #eae6f5;
+
+            }
+
+
+
+            .error {
+                color: #b20000;
+            }
+
+            .formy {
+                block-size: fit-content;
+                max-inline-size: 350px;
+                background-color: #ffffff;
+                border-radius: 31px;
+                margin: 0 auto;
+                transition: all 0.3s ease-in-out;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            form {
+                inline-size: 100%;
+                block-size: fit-content;
+                display: flex;
+                padding: 2em;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .formfield {
+                inline-size: 100%;
+                position: relative;
+                /* border: solid 1px #f00; */
+            }
+
+
+
+            .formfield svg {
+                position: absolute;
+                inset-inline-end: 0;
+                inset-block-start: 4px;
+                font-size: large;
+                inset-block-end: 0;
+                border-radius: 11px;
+                padding: 8px;
+                backdrop-filter: blur(9px);
+                margin: auto 0;
+                cursor: pointer;
+            }
+
+            .formfieldx {
+                inline-size: 90%;
+                margin: 0 auto;
+
+
+            }
+
+            .formfieldx p {
+                inline-size: 100%;
+                text-align: center;
+                padding-block-end: 20px;
+            }
+
+
+            form * {
+                font-family: 'Poppins', sans-serif;
+                color: #000;
+                transition: all .3s ease-in-out;
+                letter-spacing: 0.5px;
+                outline: none;
+                gap: 10px;
+            }
+
+
+
+
+
+            input {
+                display: block;
+                block-size: 50px;
+                inline-size: 100%;
+                padding: 0 10px;
+                border: none;
+                border-block-end: solid 1px #000;
+                margin-block-start: 8px;
+                font-size: 1em;
+                font-weight: 300;
+            }
+
+            ::placeholder {
+                color: #1e1e1e;
+            }
+
+            input:focus {
+                border-block-end-color: #007bff;
+            }
+
+            button {
+                inline-size: 100%;
+                background-color: #007bff90;
+                color: #fff;
+                padding: 10px 0;
+                font-size: 18px;
+                font-weight: 600;
+                border: none;
+                border-radius: 5px;
+                margin-block: 10px;
+                cursor: pointer;
+            }
+
+            .social {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                block-size: 50px;
+
+            }
+
+
+
+
+            .con {
+                block-size: 1em;
+                font-size: .8em;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+            }
+
+            .con::before {
+                content: '';
+                position: absolute;
+                inline-size: 100%;
+                block-size: 1px;
+                background-color: #000;
+                inset: 0;
+                z-index: 0;
+                margin: auto 0;
+            }
+
+            .jui {
+                background-color: #fff;
+                padding: 0 5px;
+                z-index: 1;
+            }
+
+            .social div {
+                background: #f2f2f2;
+                cursor: pointer;
+                block-size: 100%;
+                inline-size: 100%;
+                border-radius: 11px;
+                display: flex;
+                place-items: center;
+                place-content: center;
+                color: #000;
+                text-align: center;
+            }
+
+            .social div:hover {
+                background-color: #eae6f5;
+            }
+
+            a {
+
+                cursor: pointer;
+            }
+
+            .formfield h1 {
+                inline-size: 100%;
+                color: #007bff;
+                display: flex;
+                place-content: center;
+                font-size: 2em;
+                place-items: center;
+                font-family: Gantari;
+
+            }
+
+            .bubbly * {
+                font-family: Gantari;
+
+            }
+        </style>
+
+        <script src="{% static 'js/jquery-3.4.1.min.js'%}"></script>
+        <script src="{% static 'js/bootstrap.js'%}"></script>
+        <script src="{% static 'js/scroll.js'%}"></script>
+
+
+    </body>
+
+</html> -->

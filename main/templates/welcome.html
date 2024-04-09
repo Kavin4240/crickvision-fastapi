@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="theme-color" content="#007bff" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link href="https://api.fontshare.com/v2/css?f[]=amulya@400&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/2f69883659.js" crossorigin="anonymous"></script>
+        <title>Crickvision - PunchBiz</title>
+        <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+        <link href="https://fonts.googleapis.com/css?family=Gantari:400,600,700&display=swap" rel="stylesheet">
+        <link href="../static/css/style.css" rel="stylesheet" />
+        <link href="../static/css/responsive.css" rel="stylesheet" />
+        <link href="../static/css/responsive.css" rel="stylesheet" />
+        <link href="../static/css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+
+
+
+    </head>
+
+    <body style="font-family: Gantari;">
+
+        {% if ss == "show" %}
+        <div class="successwait" id="prompy">
+            <div class="linex"><button onclick="closePrompy()"><i class="fa-solid fa-xmark"></i></button></div>
+            <div class="linez">
+                <img src="../static/img/hourglass.gif" alt="">
+            </div>
+            <div class="linez">
+                <h6>Upload complete! Processing your video report. You'll receive an email notification when it's ready.
+                </h6>
+            </div>
+        </div>
+        {% endif %}
+        <div class="hero_area bubbly">
+            <header class="header_section">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg custom_nav-container ">
+                        <a class="navbar-brand" href="">
+                            <img src="../static/img/logo.png" style="block-size: 80px; inline-size: fit-content;">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa-solid fa-bars fa-xl" style="color: #007bff;"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                                <ul class="navbar-nav  ">
+                                    <!-- <li class="nav-item">
+                                        <div class="nav-linkx">
+                                            <div class="ct">{% if videocount >= 1 %}
+                                                0
+                                                {% else %}
+                                                1
+                                                {% endif %}
+                                            </div>
+                                            <span>CREDIT LEFT</span>
+                                        </div>
+                                    </li> -->
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href=""> Documentation </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href=""> Contact </a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            <section class=" slider_section ">
+                <div class="container">
+                    <div class="row">
+                        <style>
+                            .reqmar {
+                                block-size: 100%;
+                                inline-size: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: start;
+                                gap: 2em;
+                            }
+
+                            .request,
+                            .reports {
+                                border: solid 1px #94949440;
+                                padding: 20px;
+                                border-radius: 11px;
+                                inline-size: 100%;
+                            }
+
+                            .report {
+                                inline-size: 200px;
+                                border: dashed 2px #000000;
+                                block-size: 100px;
+                                border-radius: 11px;
+                                display: flex;
+                                opacity: 0.8;
+                                justify-content: center;
+                                align-items: center;
+                                cursor: pointer;
+                            }
+                        </style>
+                        <div class="col-md-6 ">
+                            <div class="reqmar">
+                                <div class="heading">
+                                    <h1 class="hixx">
+                                        Hiii {{name}}!,
+                                    </h1>
+
+                                </div>
+                                <div class="request">
+                                    <h2>Requests</h2>
+                                    {% if success %}
+                                      <p class="hixx" id="updng">
+                                        Video uploaded successfully!
+                                      </p>
+                                    {% elif error %}
+                                      <p class="hixx" id="updng" style="color: red;">
+                                        {{ error }}
+                                      </p>
+                                    {% else %}
+                                      <p class="hixx" id="updng">
+                                        Continue by Uploading a video.
+                                      </p>
+                                      <div class="progress rounded-pill" style="display: none;" id="prog">
+                                        <div role="progressbar" aria-valuenow="55" aria-valuemin="0" id="inval" aria-valuemax="100" class="progress-bar rounded-pill"></div>
+                                      </div>
+                                      <form action="/uploadrequest" method="post" enctype="multipart/form-data">
+                                        <input type="file" id="videoFile" name="video_file" required accept="video/*"
+                                        onchange="showButton()">
+                                        <button class="nones" id="upx" type="submit" onclick="uploadVideo()">Proceed <i
+                                            class="fa fa-circle-arrow-right" aria-hidden="true"></i></button>
+                                    </form>
+                                    {% endif %}
+                                  </div>
+                                  
+                                {% if ri %}
+                                <div class="reports">
+                                    <h2 class="hixx">Reports</h2>
+                                    <div class="report" onclick="repPreview()">
+                                        Click here to view
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <script>
+                                function repPreview() {
+                                    document.getElementById("repPreview").style.display = "block"
+                                }
+                                function closePrompyx() {
+                                    document.getElementById("repPreview").style.display = "none"
+
+                                }
+                            </script>
+
+
+                            <style>
+                                input[type="file"]::file-selector-button {
+                                    border-radius: 4px;
+                                    padding: 0 16px;
+                                    block-size: 40px;
+                                    cursor: pointer;
+                                    background-color: white;
+                                    border: 1px solid rgba(0, 0, 0, 0.16);
+                                    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+                                    margin-inline-end: 16px;
+                                    transition: background-color 200ms;
+
+
+
+                                }
+
+
+
+                                /* file upload button hover state */
+                                input[type="file"]::file-selector-button:hover {
+                                    background-color: #f3f4f6;
+                                }
+
+                                /* file upload button active state */
+                                input[type="file"]::file-selector-button:active {
+                                    background-color: #e5e7eb;
+                                }
+
+                                .nones {
+                                    border: none;
+                                    padding: 10px 10px 10px 20px;
+                                    color: #fff;
+                                    text-transform: uppercase;
+                                    border-radius: 30px;
+                                    background-color: #007bff80;
+                                    margin-block-start: 20px;
+                                    align-items: center;
+                                    justify-content: center;
+                                    block-size: fit-content;
+                                    gap: 10px;
+                                    transition: all .3s ease-in-out;
+                                    display: none;
+
+                                }
+
+                                .nones svg {
+                                    font-size: 2em;
+                                }
+
+                                .nones:hover {
+                                    gap: 35px;
+                                }
+                            </style>
+                        </div>
+                        <div class="col-lg-5 col-md-6 offset-lg-1">
+                            <img src="../static/img/vid.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <input type="text" id="bendfb" value="{{ fbdata }}" style="display: none;">
+                <input type="text" id="userid" value="{{ userid }}" style="display: none;">
+                <input type="text" id="vcount" value="{{ vcount }}" style="display: none;">
+                <form action="/process/" id="vidform" method="post">
+                    
+                    <input type="url" name="vidUrl" id="vidUrl" style="display:none;">
+                    <input type="text" name="us_id" id="usid" style="display: none;">
+                    <input type="text" name="fname" id="fname" style="display: none;">
+                    <input type="text" name="uName" id="uName" value="{{name}}" style="display: none;">
+
+
+                </form>
+
+
+            </section>
+
+            <style>
+                .successwait {
+                    max-inline-size: 400px;
+                    block-size: 40dvh;
+                    background-color: #ffffff;
+                    position: fixed;
+
+
+                    z-index: 15;
+                    box-shadow: 0 0 30px -10px #00000020;
+                    inset: 0;
+                    border-radius: 31px;
+                    margin: auto;
+                    display: flex;
+                    padding: 1em;
+                    gap: 2em;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1.3);
+                }
+
+
+
+                .successwait img {
+                    inline-size: 5em;
+                    block-size: 5em;
+                }
+
+                .successwait h6 {
+                    text-align: center;
+                    color: #464646;
+                    font-size: 1em;
+                }
+
+                .linex {
+                    position: absolute;
+                    inset-block-start: 1em;
+                    inset-inline-end: 1em;
+                }
+
+                .linex button {
+                    border: none;
+                    block-size: 1.5em;
+                    background-color: transparent;
+                    font-size: 1.4em;
+                    color: #ab0047;
+                }
+            </style>
+
+
+        </div>
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+        <script>
+            function closePrompy() {
+                const prompy = document.getElementById("prompy");
+                prompy.style.transform = "translateY(-200%)"
+
+            }
+            function showButton() {
+                var fileInput = document.getElementById('videoFile');
+                var submitButton = document.getElementById('upx');
+                if (fileInput.files.length > 0) {
+                    submitButton.style.display = 'flex';
+                } else {
+                    submitButton.style.display = 'none';
+                }
+            }
+
+
+
+
+            const datas = document.getElementById("bendfb").value;
+            console.log(datas);
+            const print = (dat) => { console.log(dat); }
+
+            // Replace single quotes with double quotes
+            const datass = datas.replace(/'/g, '"');
+            console.log(datass);
+
+            try {
+                // Attempt to parse the corrected JSON string
+                var fbcon = JSON.parse(datass);
+                console.log(fbcon);
+
+
+            } catch (error) {
+                console.error("Error parsing JSON:", error);
+            }
+            firebase.initializeApp(fbcon);
+            function uploadVideo() {
+                document.getElementById('upx').innerHTML = `Uploading! <i class="fa-solid fa-cloud-arrow-up"></i>`;
+                document.getElementById('updng').textContent = "Uploading, Please Wait!";
+                document.getElementById('upx').setAttribute("disabled", "disabled");
+                document.getElementById('videoFile').style.display = "none";
+                document.getElementById('prog').style.display = "block";
+                const inval = document.getElementById('inval');
+
+
+                var user = document.getElementById("userid").value;
+                sessionStorage.setItem("id", user);
+                document.getElementById("usid").value = user;
+                var storage = firebase.storage();
+                var vcount = document.getElementById("vcount").value;
+                var vcint = parseInt(vcount);
+                vcint += 1;
+                var file = document.getElementById("videoFile").files[0];
+                var storageRef = storage.ref();
+                var fname = document.getElementById("fname");
+                fname.value = `video${vcint}`;
+                var thisref = storageRef.child(user).child(`video${vcint}`).put(file);
+
+                thisref.on(
+                    "state_changed",
+                    function (snapshot) {
+                        print(snapshot);
+                        let bValue = snapshot.b;
+                        let sMb = bValue / 1048576;
+                        sMb = sMb.toFixed(2);
+
+                        let hValue = snapshot.h;
+                        let fMb = hValue / 1048576;
+                        fMb = fMb.toFixed(2);
+                        let percent = (bValue / hValue) * 100;
+                        percent = parseInt(percent);
+                        document.getElementById('updng').textContent = `Uploading your Video, (${sMb}MB / ${fMb}MB)`;
+                        print(`${percent}%`);
+                        inval.innerText = `${percent}%`;
+                        inval.style.width = `${percent}%`;
+
+
+                    },
+                    function (error) { },
+
+                    function () {
+                        // Upload completed successfully, now we can get the download URL
+                        var downloadURL = thisref.snapshot.downloadURL;
+                        console.log("got url");
+                        document.getElementById("vidUrl").value = downloadURL;
+                        print(downloadURL);
+                        // document.getElementById("url").value = downloadURL;
+                        document.getElementById('upx').style.display = "none";
+                        document.getElementById('updng').textContent = "Uploaded Successfully!, you will be redirected to corresponding page!";
+                        vcint += 1;
+                        var form = document.getElementById("vidform");
+                        form.submit();
+                    }
+                );
+            }
+
+            function downloadImg(url) {
+                var link = document.createElement('a');
+                link.href = url;
+                link.target = "_blank";
+                link.dispatchEvent(new MouseEvent('click'));
+            }
+
+
+
+
+
+
+        </script>
+        <script src="static /js/jquery-3.4.1.min.js"></script>
+        <script src="static/js/bootstrap.js"></script>
+        <script src="static/js/scroll.js"></script>
+
+
+        <div id="repPreview" style="display: none;">
+
+
+
+            <div class="topbar">
+                <h4>Observation Report:</h4>
+                <div class="linexx"><button style="
+                border: none;
+                    block-size: 1.5em;
+                    background-color: transparent;
+                    font-size: 1.4em;
+                    color: #ab0047;
+                " onclick="closePrompyx()"><i class="fa-solid fa-xmark"></i></button></div>
+
+
+            </div>
+            <div class="maincont">
+                <div class="videox">
+                    <label for="">Analyzed Video:</label>
+                    <video src="{{rv}}" autoplay controls> </video>
+                </div>
+                <div class="imagex">
+                    <label for="">Batting Style: (Click to open image in new tab)</label>
+                    <div class="imgx">
+                        {% for item in ri %}
+                        <div class="ibox" onclick="downloadImg('{{item}}')">
+                            <img src="{{item}}" alt="">
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <style>
+            #repPreview {
+                inline-size: 650px;
+                block-size: 70dvh;
+                position: absolute;
+                inset: 0;
+                margin: auto;
+                background-color: #fff;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+
+                gap: 1em;
+                overflow-y: scroll;
+                align-items: center;
+                justify-content: space-between;
+                border-radius: 31px;
+
+
+
+
+            }
+
+            .topbar {
+                background-color: #ffffff50;
+                backdrop-filter: blur(5px);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+
+            .maincont {
+                inline-size: 100%;
+                /* block-size: 100%; */
+                block-size: max-content;
+                gap: 10px;
+
+
+
+
+                .imagex,
+                .videox {
+                    inline-size: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px;
+                    border-radius: 6px;
+                    border: solid 1px #00000020;
+                    justify-content: flex-start;
+                }
+
+                .videox video {
+                    inline-size: 100%;
+                    border-radius: 6px;
+                }
+
+                .imagex {
+                    margin-block-start: 1em;
+                }
+
+                .imagex .imgx {
+                    inline-size: 600px;
+                    block-size: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: auto;
+                    gap: 10px;
+                    overflow: hidden;
+                }
+
+                .imgx .ibox {
+                    border-radius: 6px;
+                    inline-size: 265px;
+                    block-size: 265px;
+                    overflow: hidden;
+                    position: relative;
+                    background-color: #f0f0f0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .ibox img {
+                    max-inline-size: 100%;
+                    max-block-size: 100%;
+                    inline-size: auto;
+                    block-size: auto;
+                }
+
+
+
+
+            }
+        </style>
+    </body>
+
+</html>

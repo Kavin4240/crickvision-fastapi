@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="theme-color" content="#007bff" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link href="https://api.fontshare.com/v2/css?f[]=amulya@400&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/2f69883659.js" crossorigin="anonymous"></script>
+        <title>Crickvision - PunchBiz</title>
+        <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Gantari:400,600,700&display=swap" rel="stylesheet">
+        <link href="../static 'css/style.css" rel="stylesheet" />
+        <link href="../static 'css/responsive.css" rel="stylesheet" />
+        <link href="../static/css/responsive.css" rel="stylesheet" />
+        <link href="../static/css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+
+
+
+    </head>
+
+    <body style="font-family: Gantari;" style="background-color: #eae6f5;">
+        <style>
+            .reqmar {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: 2em;
+            }
+
+            .request {
+                border: solid 1px #94949440;
+                border-radius: 11px;
+                padding: 20px;
+                gap: 1em;
+                width: 100%;
+                height: 100%;
+                overflow-y: scroll;
+            }
+
+            .request::-webkit-scrollbar {
+                width: 5px;
+                background-color: transparent;
+            }
+
+            .request::-webkit-scrollbar-thumb {
+                background-color: #0047ab;
+                height: 50px;
+            }
+
+            .report {
+                width: 200px;
+                border: dashed 2px #000000;
+                height: 100%;
+                border-radius: 11px;
+                display: flex;
+                opacity: 0.8;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
+
+            #dev {
+                font-size: 1.2em;
+                font-family: consolas, monospace;
+                background: linear-gradient(45deg, rgb(166, 141, 0), rgb(255, 178, 34));
+                padding: 5px 10px;
+                color: #fff;
+                font-weight: 800;
+                border-radius: 6px;
+                margin-block: 1em;
+
+                height: fit-content;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .rcont {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                height: 100%;
+            }
+
+            .vUrl {
+                width: 100%;
+                height: 2.2em;
+                border-radius: 6px;
+                border: solid 1px #aaaaaaaa;
+                padding-left: 10px;
+                padding-right: 35px;
+                font-size: 18px;
+                font-family: monospace;
+                background-color: transparent;
+
+            }
+
+            .vUrl:focus {
+                outline: none;
+            }
+
+            .copy:focus {
+                outline: none;
+                border: none;
+            }
+
+            .fields {
+                display: flex;
+                position: relative;
+
+            }
+
+            .copy {
+                height: 40px;
+                width: 40px;
+                right: 0px;
+                top: 0;
+                bottom: 0;
+                margin-block: auto;
+
+                position: absolute;
+                font-size: 1.2em;
+                border: none;
+                border-radius: 6px;
+                background-color: transparent;
+            }
+
+            .userdiv {
+                border-radius: 11px;
+                padding: 10px;
+                height: fit-content;
+                gap: none;
+                display: flex;
+                padding-inline: 1.5em;
+                padding-block: 1em;
+                align-items: center;
+                justify-content: space-between;
+                border: solid 1px #a2a2a270;
+                margin-bottom: 1em;
+
+
+            }
+
+            .lcont h1 {
+                font-size: 1.3em;
+
+            }
+
+            .lcont h3 {
+                font-size: 1.1em;
+            }
+
+            .lcont p {
+                font-size: .9em;
+            }
+
+            .lcont a {
+                padding: none;
+            }
+
+            .observation {
+                position: absolute;
+                inset: 0;
+                margin: auto;
+                width: 800px;
+                height: 70dvh;
+                padding: 20px;
+                border-radius: 21px;
+                background-color: #fff;
+                box-shadow: 0 0 20px -5px #00000040;
+                transition: all .4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                gap: 10px;
+                display: flex;
+                overflow: hidden scroll;
+                flex-direction: column;
+                justify-content: flex-start;
+
+            }
+
+            .observation::backdrop {
+                opacity: 0.2;
+            }
+
+            .bubby {
+                border: none;
+                background-color: #007bff;
+                color: #fff;
+                cursor: pointer;
+                border-radius: 31px;
+                padding: 6px 13px;
+            }
+
+            .contx {
+                height: 100%;
+                width: 100%;
+                gap: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .contx input[type="text"] {
+                width: 100%;
+                height: 50px;
+                border-radius: 6px;
+                background-color: transparent;
+                border: 1px solid rgba(0, 0, 0, 0.16);
+
+                padding-left: .5em;
+            }
+
+            input:focus {
+                outline: none;
+            }
+
+            .linex button {
+                border: none;
+                height: 1.5em;
+                background-color: transparent;
+                font-size: 1.5em;
+                overflow: hidden;
+                color: #ab0047;
+            }
+
+
+
+
+            .linex {
+                top: 1em;
+                height: 2em;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+            }
+
+            input[type="file"]::file-selector-button {
+                border-radius: 4px;
+                padding: 0 16px;
+                height: 40px;
+                cursor: pointer;
+                background-color: white;
+                border: 1px solid rgba(0, 0, 0, 0.16);
+                box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+                margin-right: 16px;
+                transition: background-color 200ms;
+
+
+
+            }
+
+
+
+            /* file upload button hover state */
+            input[type="file"]::file-selector-button:hover {
+                background-color: #f3f4f6;
+            }
+
+            /* file upload button active state */
+            input[type="file"]::file-selector-button:active {
+                background-color: #e5e7eb;
+            }
+        </style>
+
+        <div class="hero_area bubbly">
+            <header class="header_section">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg custom_nav-container "
+                        style="height: 60px;display: flex; justify-content: space-between;">
+                        <a class="navbar-brand" href="">
+                            <img src="static/img/logo.png" style="height: 60px;width: fit-content;">
+                        </a>
+                        <span id="dev">DEVELOPER</span>
+                        <ul class="navbar-nav  ">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <section class=" slider_section " style="background-color: #eae6f5;">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="reqmar">
+                                <div class="heading">
+                                    <h1>
+                                        Hiii {{namex}}! ,
+                                    </h1>
+                                    <h2><u>Requests:</u></h2>
+
+                                </div>
+                                <div class="request">
+                                    {% for item1, item2, item3,item4,item5 in zipped_lists %}
+
+                                    <div class="userdiv">
+                                        <div class="lcont">
+                                            <h1>{{ item1 }}</h1>
+
+                                            <h3><a href="mailto:{{item2}}">{{ item2 }}</a></h3>
+
+                                            <p>{{ item3 }}</p>
+                                        </div>
+                                        <div class="rcont" style="gap: 10px;">
+                                            <p>Pending Requests: {{item4}}</p>
+                                            <div class="fields">
+                                                <input type="text" value="{{item5}}" class="vUrl" id="{{ item3 }}" />
+                                                <button class="copy" onclick="copyUrl('{{item3}}')"><i
+                                                        class="fa-regular fa-copy"></i></button>
+
+                                            </div>
+                                            <button class="bubby"
+                                                onclick="showpop('{{ item3 }}','{{ item1 }}','{{item2}}')">Submit
+                                                Observation</button>
+
+                                        </div>
+                                    </div>
+
+                                    {% endfor %}
+
+
+                                </div>
+
+                            </div>
+                            <script>
+                                function copyUrl(theUrl) {
+                                    const pwElement = document.getElementById(theUrl);
+                                    pwElement.select();
+                                    document.execCommand("copy");
+                                }
+                                function showpop(curr_user, name, mail) {
+                                    document.getElementById("observation").style.transform = "translatey(0)";
+                                    document.getElementById("obsuid").value = curr_user;
+                                    document.getElementById("obsuid2").value = curr_user;
+                                    document.getElementById("obsuname").value = name;
+                                    document.getElementById("obsumail").value = mail;
+                                    document.getElementById("obsuname2").value = name;
+                                    document.getElementById("obsumail2").value = mail;
+
+
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="observation" id="observation" style="transform: translateY(-100dvh); z-index: 1000;">
+                <div class="linex"> Upload your Observation<button onclick="closePrompy()"><i
+                            class="fa-solid fa-xmark"></i></button></div>
+                <div class="contx">
+
+
+                    <label for="">User Id:</label>
+                    <input type="text" name="" id="obsuid" readonly>
+                    <label for="">User Name:</label>
+                    <input type="text" name="" id="obsuname" readonly>
+                    <label for="">User Mail:</label>
+                    <input type="text" name="" id="obsumail" readonly>
+
+                    <div class="imgvid">
+
+                        <div class="vidside">
+                            <label for="">Observation Video:</label>
+
+
+
+                            <div class="domer">
+                                <p class="hixx" id="updng">
+                                    Continue by Uploading a video.
+                                </p>
+                                <div class="progress rounded-pill" style="display: none;" id="prog">
+                                    <div role="progressbar" aria-valuenow="55" aria-valuemin="0" id="inval"
+                                        aria-valuemax="100" class="progress-bar rounded-pill"></div>
+                                </div>
+                                <div class="fileview">
+
+                                    <input type="file" id="videoFile" required accept="video/*"
+                                        onchange="showButton()" />
+                                    <button class="nones" id="upx" type="submit" onclick="uploadVideo()">Proceed <i
+                                            class="fa fa-circle-arrow-right" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+
+
+                            <label for="">Video URL:</label>
+                            <input type="text" name="" id="subUrl" readonly>
+                        </div>
+
+                        <div class="imgside">
+                            <label for="">Observation Images: </label>
+                            <div class="domer">
+                                <p class="hixx" id="iupdng">
+                                    Continue by Uploading multiple images.
+                                </p>
+                                <div class="progress rounded-pill" style="display: none;" id="iprog">
+                                    <div role="progressbar" aria-valuenow="55" aria-valuemin="0" id="iinval"
+                                        aria-valuemax="100" class="progress-bar rounded-pill"></div>
+                                </div>
+                                <div class="fileview">
+
+                                    <input type="file" id="imgFile" required accept="image/*" multiple
+                                        onchange="showiButton()" />
+                                    <button class="nones" id="iupx" type="submit" onclick="uploadImage()">Proceed <i
+                                            class="fa fa-circle-arrow-right" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                            <label for="">Image Urls:</label>
+                            <input type="text" name="" id="isubUrl" readonly>
+                        </div>
+
+                    </div>
+
+
+
+                    <button class="bubbys" onclick="submitForm()">Submit</button>
+                    <form action="/reportSubmit/" method="post" id="vidform">
+                        {% csrf_token %}
+                        <input type="text" name="userid" id="obsuid2" style="display: none;">
+                        <input type="text" name="videou" id="subUrl2" style="display: none;">
+                        <input type="text" name="images" id="isubUrl2" style="display: none;">
+                        <input type="text" name="rName" id="obsuname2" style="display: none;">
+                        <input type="text" name="rMail" id="obsumail2" style="display: none;">
+
+
+
+                        <input type="text" value="{{namex}}" name="devname" id="obsuid2" style="display: none;">
+                    </form>
+
+
+
+                </div>
+            </div>
+
+            <style>
+                .fileview {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    height: 40px;
+                    overflow: hidden;
+
+                    button {
+                        height: 100%;
+                        color: #fff;
+                        border: none;
+                        border-radius: 6px;
+                        display: none;
+                        background-color: #007bff;
+                        padding-inline: 10px;
+                        align-items: center;
+                        justify-content: center;
+
+                    }
+                }
+
+                .imgvid {
+                    display: flex;
+                    gap: 10px;
+                    width: 100%;
+                    justify-content: space-between;
+
+                    >div {
+                        width: 100%;
+                        border: 1px solid rgba(0, 0, 0, 0.16);
+                        border-radius: 6px;
+                        padding: 10px;
+
+                    }
+
+
+                }
+
+                .bubbys {
+                    height: 100%;
+                    color: #fff;
+                    border: none;
+                    border-radius: 6px;
+                    background-color: #007bff;
+                    padding: 5px;
+                    align-items: center;
+                    justify-content: center;
+                }
+            </style>
+
+
+        </div>
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+        <script>
+            function closePrompy() {
+                const prompy = document.getElementById("observation");
+                prompy.style.transform = "translateY(-200dvh)"
+
+            }
+            function showButton() {
+                var fileInput = document.getElementById('videoFile');
+                var submitButton = document.getElementById('upx');
+                if (fileInput.files.length > 0) {
+                    submitButton.style.display = 'block';
+                } else {
+                    submitButton.style.display = 'none';
+                }
+            }
+            function showiButton() {
+                var fileInput = document.getElementById('imgFile');
+                var submitButton = document.getElementById('iupx');
+                if (fileInput.files.length > 0) {
+                    submitButton.style.display = 'block';
+                } else {
+                    submitButton.style.display = 'none';
+                }
+            }
+            const fbcon = {
+                apiKey: "AIzaSyBjMWCZJS-y9VI7D0NOMSF8eZkNcIrD31M",
+                authDomain: "crickvisionx.firebaseapp.com",
+                databaseURL: "https://crickvisionx-default-rtdb.asia-southeast1.firebasedatabase.app",
+                projectId: "crickvisionx",
+                storageBucket: "crickvisionx.appspot.com",
+                messagingSenderId: "81350001620",
+                appId: "1:81350001620:web:258ad1c12fc03500f28c41",
+                measurementId: "G-TN28BN3NRV"
+            };
+            const print = (dat) => { console.log(dat); }
+            firebase.initializeApp(fbcon);
+            function uploadVideo() {
+                document.getElementById('upx').innerHTML = `Uploading! <i class="fa-solid fa-cloud-arrow-up"></i>`;
+                document.getElementById('updng').textContent = "Uploading, Please Wait!";
+                document.getElementById('upx').setAttribute("disabled", "disabled");
+                document.getElementById('videoFile').style.display = "none";
+                document.getElementById('upx').style.display = "none";
+
+                document.getElementById('prog').style.display = "block";
+                const inval = document.getElementById('inval');
+
+
+                var user = document.getElementById("obsuid").value;
+                var storage = firebase.storage();
+                var file = document.getElementById("videoFile").files[0];
+                var storageRef = storage.ref();
+                var thisref = storageRef.child(user).child(`report`).child("video").put(file);
+
+                thisref.on(
+                    "state_changed",
+                    function (snapshot) {
+                        print(snapshot);
+                        let bValue = snapshot.b;
+                        let sMb = bValue / 1048576;
+                        sMb = sMb.toFixed(2);
+
+                        let hValue = snapshot.h;
+                        let fMb = hValue / 1048576;
+                        fMb = fMb.toFixed(2);
+                        let percent = (bValue / hValue) * 100;
+                        percent = parseInt(percent);
+                        document.getElementById('updng').textContent = `Uploading your Video, (${sMb}MB / ${fMb}MB)`;
+                        print(`${percent}%`);
+                        if (sMb == fMb) {
+                            document.getElementById('updng').textContent = `Video Uploaded Successfully!`;
+
+                        }
+                        inval.innerText = `${percent}%`;
+                        inval.style.width = `${percent}%`;
+
+
+                    },
+                    function (error) { },
+
+                    function () {
+                        var downloadURL = thisref.snapshot.downloadURL;
+                        console.log("got url");
+                        document.getElementById("subUrl").value = downloadURL;
+                        document.getElementById("subUrl2").value = downloadURL;
+
+                        print(downloadURL);
+
+                    }
+                );
+            }
+            let imgUrls = [];
+            function uploadImage() {
+                document.getElementById('iupx').innerHTML = `Uploading! <i class="fa-solid fa-cloud-arrow-up"></i>`;
+                document.getElementById('iupdng').textContent = "Uploading, Please Wait!";
+                document.getElementById('iupx').setAttribute("disabled", "disabled");
+                document.getElementById('imgFile').style.display = "none";
+                document.getElementById('iupx').style.display = "none";
+                document.getElementById('iprog').style.display = "block";
+                const inval = document.getElementById('iinval');
+                var user = document.getElementById("obsuid").value;
+                var storage = firebase.storage();
+                var file = document.getElementById("imgFile").files;
+                var files = Array.from(file);
+                var storageRef = storage.ref();
+                const uploadPromises = files.map((img, index) => {
+                    return new Promise((resolve, reject) => {
+                        var thisref = storageRef.child(user).child(`report`).child("images").child(`img${index}`).put(img);
+                        thisref.on(
+                            "state_changed",
+                            function (snapshot) {
+                                let bValue = snapshot.bytesTransferred;
+                                let sMb = bValue / 1048576;
+                                sMb = sMb.toFixed(2);
+
+                                let hValue = snapshot.totalBytes;
+                                let fMb = hValue / 1048576;
+                                fMb = fMb.toFixed(2);
+                                let percent = (bValue / hValue) * 100;
+                                percent = parseInt(percent);
+                                document.getElementById('iupdng').textContent = `Uploading your image ${index}, (${sMb}MB / ${fMb}MB)`;
+                                inval.innerText = `${percent}%`;
+                                inval.style.width = `${percent}%`;
+                            },
+                            function (error) {
+                                reject(error);
+                            },
+                            function () {
+                                // Upload completed successfully, now we can get the download URL
+                                var downloadURL = thisref.snapshot.downloadURL;
+                                console.log("got url");
+                                imgUrls[index] = downloadURL;
+                                resolve();
+                            }
+                        );
+                    });
+                });
+
+                // Wait for all upload promises to resolve
+                Promise.all(uploadPromises)
+                    .then(() => {
+                        // Once all uploads are complete, join the imgUrls array and set the value
+                        var finalUrl = imgUrls.join(",");
+                        console.log(finalUrl);
+                        document.getElementById("isubUrl").value = finalUrl;
+                        document.getElementById("isubUrl2").value = finalUrl;
+
+                    })
+                    .catch(error => {
+                        console.error('Error uploading images:', error);
+                        // Handle error here
+                    });
+            }
+
+
+
+
+
+
+
+
+
+
+            function submitForm() {
+
+                var form = document.getElementById("vidform");
+                form.submit();
+            }
+
+
+
+
+
+        </script>
+        <script src="{% static 'js/jquery-3.4.1.min.js'%}"></script>
+        <script src="{% static 'js/bootstrap.js'%}"></script>
+        <script src="{% static 'js/scroll.js'%}"></script>
+    </body>
+
+</html>
